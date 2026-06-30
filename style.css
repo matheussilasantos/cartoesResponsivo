@@ -1,3 +1,8 @@
+.caixa-cartoes{
+    display: flex;
+    justify-content: space-evenly;
+}
+
 .caixote{
     width: 300px;
     height: 450px;
@@ -6,6 +11,7 @@
     align-items: center;
     border: 3px solid gray;
     border-radius: 15px;
+    box-shadow: 2px 2px 5px 10px silver;
 }
 
 .caixote img{
