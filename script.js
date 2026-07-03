@@ -4,24 +4,32 @@ const botao3 = document.getElementById("botao3")
 const botao4 = document.getElementById("botao4")
 const botao5 = document.getElementById("botao5")
 
-const caixa = document.getElementById("caixa-cartoes");
+function animarCard(botao) { 
+    const card = botao.closest('.caixote'); 
+    const imagem = card.querySelector('img');
 
-botao1.addEventListener('click', () => {
-    alert("aaaaaaaaaaaaaa");
-});
+    
+    imagem.classList.remove('imagem-saltar'); 
+    void imagem.offsetWidth; 
+    imagem.classList.add('imagem-saltar'); 
 
-botao2.addEventListener('click', () => {
-    alert("bbbbbbbbbbbbbbb");
-});
+   
+    confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { x: 0.2, y: 0.6 } 
+    });
+    
+    
+    confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { x: 0.8, y: 0.6 }
+    });
+} 
 
-botao3.addEventListener('click', () => {
-    alert("cccccccccccccccc");
-});
-
-botao4.addEventListener('click', () => {
-    alert("ddddddddddddddddd");
-});
-
-botao5.addEventListener('click', () => {
-    alert("eeeeeeeeeeeeeeeeeee");
-});
+botao1.addEventListener('click', () => animarCard(botao1)); 
+botao2.addEventListener('click', () => animarCard(botao2)); 
+botao3.addEventListener('click', () => animarCard(botao3)); 
+botao4.addEventListener('click', () => animarCard(botao4)); 
+botao5.addEventListener('click', () => animarCard(botao5));
