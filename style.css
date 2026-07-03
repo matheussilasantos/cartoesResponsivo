@@ -1,6 +1,7 @@
-.caixa-cartoes{
+#caixa-cartoes{
     display: flex;
     justify-content: space-evenly;
+    margin-top: 100px;
 }
 
 .caixote{
@@ -35,5 +36,21 @@ button{
     padding: 10px;
     border-radius: 15px;
     background-color: dodgerblue;
+}
+
+header{
+    position: absolute;
+    top: 0px;
+    width: 100%;
+    background-color: dodgerblue;
+    text-align: center;
+}
+
+footer{
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    background-color: dodgerblue;
+    text-align: center;
 }
        
