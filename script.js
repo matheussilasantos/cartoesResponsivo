@@ -13,7 +13,25 @@ function animarCard(botao) {
     void imagem.offsetWidth; 
     imagem.classList.add('imagem-saltar'); 
 
-   
+   const caminhoAudio = botao.getAttribute('data-audio');
+    
+    if (caminhoAudio) {
+        const somEfeito = new Audio(caminhoAudio);
+    somEfeito.currentTime = 0;
+    somEfeito.play();
+    }
+
+    const tempoDuracao = 800;
+
+    setTimeout(() => {
+       somEfeito.pause();
+       somEfeito.currentTime = 0; 
+    }, tempoDuracao);
+
+    imagem.classList.remove('imagem-saltar'); 
+    void imagem.offsetWidth; 
+    imagem.classList.add('imagem-saltar');
+
     confetti({
         particleCount: 100,
         spread: 70,
