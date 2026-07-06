@@ -4,24 +4,50 @@ const botao3 = document.getElementById("botao3")
 const botao4 = document.getElementById("botao4")
 const botao5 = document.getElementById("botao5")
 
-const caixa = document.getElementById("caixa-cartoes");
+function animarCard(botao) { 
+    const card = botao.closest('.caixote'); 
+    const imagem = card.querySelector('img');
 
-botao1.addEventListener('click', () => {
-    alert("aaaaaaaaaaaaaa");
-});
+    
+    imagem.classList.remove('imagem-saltar'); 
+    void imagem.offsetWidth; 
+    imagem.classList.add('imagem-saltar'); 
 
-botao2.addEventListener('click', () => {
-    alert("bbbbbbbbbbbbbbb");
-});
+   const caminhoAudio = botao.getAttribute('data-audio');
+    
+    if (caminhoAudio) {
+        const somEfeito = new Audio(caminhoAudio);
+    somEfeito.currentTime = 0;
+    somEfeito.play();
+    }
 
-botao3.addEventListener('click', () => {
-    alert("cccccccccccccccc");
-});
+    const tempoDuracao = 800;
 
-botao4.addEventListener('click', () => {
-    alert("ddddddddddddddddd");
-});
+    setTimeout(() => {
+       somEfeito.pause();
+       somEfeito.currentTime = 0; 
+    }, tempoDuracao);
 
-botao5.addEventListener('click', () => {
-    alert("eeeeeeeeeeeeeeeeeee");
-});
+    imagem.classList.remove('imagem-saltar'); 
+    void imagem.offsetWidth; 
+    imagem.classList.add('imagem-saltar');
+
+    confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { x: 0.2, y: 0.6 } 
+    });
+    
+    
+    confetti({
+        particleCount: 100,
+        spread: 70,
+        origin: { x: 0.8, y: 0.6 }
+    });
+} 
+
+botao1.addEventListener('click', () => animarCard(botao1)); 
+botao2.addEventListener('click', () => animarCard(botao2)); 
+botao3.addEventListener('click', () => animarCard(botao3)); 
+botao4.addEventListener('click', () => animarCard(botao4)); 
+botao5.addEventListener('click', () => animarCard(botao5));
