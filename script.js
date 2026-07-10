@@ -14,14 +14,15 @@ function animarCard(botao) {
     imagem.classList.add('imagem-saltar'); 
 
    const caminhoAudio = botao.getAttribute('data-audio');
+   let somEfeito = null;
     
     if (caminhoAudio) {
-        const somEfeito = new Audio(caminhoAudio);
+    somEfeito = new Audio(caminhoAudio);
     somEfeito.currentTime = 0;
     somEfeito.play();
     }
 
-    const tempoDuracao = 800;
+    const tempoDuracao = 1500;
 
     setTimeout(() => {
        somEfeito.pause();
